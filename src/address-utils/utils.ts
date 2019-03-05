@@ -92,6 +92,15 @@ export function decode_address(address: string, nettype: NetType) {
 	}
 }
 
+export function isValidAddress(address: string, netType: NetType): boolean {
+  try {
+    decode_address(address, netType);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 export function makeIntegratedAddressFromAddressAndShortPid(
 	address: string,
 	short_pid: string,
