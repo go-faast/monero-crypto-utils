@@ -1,6 +1,6 @@
-# @xmr-core/xmr-crypto-utils
+# monero-crypto-utils
 
-Core crypto operations for Monero
+A fork of @xmr-core/xmr-crypto-utils without any ledger device functions and dependencies.
 
 ## Features
 
@@ -11,9 +11,6 @@ Core crypto operations for Monero
 -   Hash operations such as `hash_to_scalar`, `hash_to_ec`
 -   Derivation operations such as generating key derivations, deriving private and public keys
 -   Primitive functions for curve and scalar functions
--   Ledger Nano S implementation under `device-ledger`
--   "Default" device implementation for unified api usage for private keys
--   Device interface to conform to for future hardware device implementations like Trezor
 -   Converting private keys to public keys
 -   Generating new keypairs
 -   Verifying keypairs
@@ -37,22 +34,27 @@ Core crypto operations for Monero
 ---
 
 ```ts
-import { generate_key_image } from "@xmr-core/xmr-crypto-utils";
-const secretKey = "...";
-const publicKey = "...";
-const keyImage = generate_key_image(publicKey, secretKey);
-```
+import { decode_address, NetType } from "xmr-address-utils";
 
-See `@xmr-core/xmr-transaction` to see how the device portions of `@xmr-core/xmr-crypto-utils` is used in the context of creating transactions, or `@xmr-core/xmr-mymonero-libs` to see how its used for checking if transactions belong to the current hardware device being used.
+function isValidAddress(address: string, netType: NetType): boolean {
+  try {
+    decodeAddress(address, netType)
+    return true
+  } catch (e) {
+    return false
+  }
+}
+isValidAddress('4AqM9s31...', NetType.MAINNET)
+```
 
 ## Installation
 
 ---
 
-Install @xmr-core/xmr-crypto-utils by running:
+Install monero-crypto-utils by running:
 
 ```sh
-yarn add @xmr-core/xmr-crypto-utils
+yarn add go-faast/monero-crypto-utils
 ```
 
 ## License
