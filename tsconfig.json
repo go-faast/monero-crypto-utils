@@ -1,0 +1,17 @@
+{
+	"extends": "../tsconfig.settings.json",
+
+	"compilerOptions": {
+		"outDir": "lib",
+		"rootDir": "src"
+	},
+	"references": [
+		{ "path": "../xmr-vendor" },
+		{ "path": "../xmr-varint" },
+		{ "path": "../xmr-constants" },
+		{ "path": "../xmr-b58" },
+		{ "path": "../xmr-str-utils" },
+		{ "path": "../xmr-fast-hash" },
+		{ "path": "../biginteger" }
+	]
+}

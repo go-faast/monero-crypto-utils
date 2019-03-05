@@ -1,0 +1,54 @@
+{
+	"name": "@xmr-core/xmr-crypto-utils",
+	"version": "0.0.8",
+	"description": "Core crypto operations for Monero and implementations and interfaces of various hardware devices for creating Monero transactions securely",
+	"main": "lib/index.js",
+	"typings": "lib/index.d.ts",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"prepublishOnly": "tsc -b ."
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/MyCryptoHQ/xmr-core.git"
+	},
+	"keywords": [
+		"xmr-core",
+		"monero",
+		"mymonero",
+		"typescript",
+		"ts",
+		"lightweight",
+		"lightwallet",
+		"wallet",
+		"crypto",
+		"script",
+		"utility",
+		"tool",
+		"xmr"
+	],
+	"author": "HenryNguyen5",
+	"license": "See LICENSE.TXT. Copyright (c) 2014-2018, MyMonero.com. All rights reserved.",
+	"bugs": {
+		"url": "https://github.com/MyCryptoHQ/xmr-core/issues"
+	},
+	"dependencies": {
+		"@ledgerhq/hw-transport-node-hid": "^4.22.0",
+		"@xmr-core/biginteger": "^0.0.8",
+		"@xmr-core/xmr-fast-hash": "^0.0.8",
+		"@xmr-core/xmr-str-utils": "^0.0.8",
+		"@xmr-core/xmr-varint": "^0.0.8",
+		"@xmr-core/xmr-vendor": "^0.0.8",
+		"node-hid": "^0.7.3",
+		"u2f-api": "^1.0.6"
+	},
+	"devDependencies": {
+		"@types/node-hid": "^0.7.0",
+		"typescript": "^3.0.0"
+	},
+	"homepage": "https://github.com/MyCryptoHQ/xmr-core#readme",
+	"gitHead": "47b391b73d252306a10631c73c5501aec9c43e62",
+	"publishConfig": {
+		"access": "public"
+	}
+}
