@@ -2,50 +2,6 @@ import { CNCrypto } from "@xmr-core/xmr-vendor";
 import { KEY_SIZE, STRUCT_SIZES } from "./constants";
 import { hextobin, bintohex } from "@xmr-core/xmr-str-utils";
 import { hash_to_ec } from "./hash_ops";
-import { HWDevice } from "../device";
-
-export async function derive_key_image_from_tx(
-	tx_pub: string,
-	view_sec: string,
-	spend_pub: string,
-	spend_sec: string,
-	output_index: number,
-	hwdev: HWDevice,
-) {
-	if (tx_pub.length !== 64) {
-		throw Error("Invalid tx_pub length");
-	}
-	if (view_sec.length !== 64) {
-		throw Error("Invalid view_sec length");
-	}
-	if (spend_pub.length !== 64) {
-		throw Error("Invalid spend_pub length");
-	}
-	if (spend_sec.length !== 64) {
-		throw Error("Invalid spend_sec length");
-	}
-	const recv_derivation = await hwdev.generate_key_derivation(
-		tx_pub,
-		view_sec,
-	);
-
-	const ephemeral_sec = await hwdev.derive_secret_key(
-		recv_derivation,
-		output_index,
-		spend_sec,
-	);
-
-	const ephemeral_pub = await hwdev.secret_key_to_public_key(ephemeral_sec);
-
-	const key_image = await hwdev.generate_key_image(
-		ephemeral_pub,
-		ephemeral_sec,
-	);
-	return {
-		ephemeral_pub,
-		key_image,
-	};
-}
 
 export function generate_key_image(pub: string, sec: string) {
 	if (!pub || !sec || pub.length !== 64 || sec.length !== 64) {
