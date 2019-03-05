@@ -28,22 +28,14 @@ A fork of @xmr-core/xmr-crypto-utils without any ledger device functions and dep
 -   Check if a payment id is a short(encrypted) or long(plaintext) id
 -   Encrypt/Decrypt a payment id with a keypair
 -   Generate a payment id
+-   Validate an address
 
 ## Usage
 
 ---
 
 ```ts
-import { decode_address, NetType } from "xmr-address-utils";
-
-function isValidAddress(address: string, netType: NetType): boolean {
-  try {
-    decodeAddress(address, netType)
-    return true
-  } catch (e) {
-    return false
-  }
-}
+import { isValidAddress, NetType } from "monero-crypto-utils";
 isValidAddress('4AqM9s31...', NetType.MAINNET)
 ```
 
@@ -51,10 +43,10 @@ isValidAddress('4AqM9s31...', NetType.MAINNET)
 
 ---
 
-Install monero-crypto-utils by running:
+Install by running:
 
 ```sh
-yarn add go-faast/monero-crypto-utils
+npm install go-faast/monero-crypto-utils
 ```
 
 ## License
