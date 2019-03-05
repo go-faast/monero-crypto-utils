@@ -1,17 +1,27 @@
 {
-	"extends": "../tsconfig.settings.json",
-
 	"compilerOptions": {
+		"target": "es5",
+		"module": "commonjs",
+		"composite": true,
+		"declaration": true,
+		"declarationMap": true,
+		"sourceMap": true,
+		"typeRoots": ["node_modules/@types", "./@types"],
+		"lib": ["es2017"],
+		"moduleResolution": "node",
+		"noEmitOnError": false,
+		"noImplicitAny": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"strictNullChecks": true,
+		"strictPropertyInitialization": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitThis": true,
+		"noErrorTruncation": true,
+		"pretty": true,
+		"resolveJsonModule": false,
+		"esModuleInterop": true,
 		"outDir": "lib",
 		"rootDir": "src"
-	},
-	"references": [
-		{ "path": "../xmr-vendor" },
-		{ "path": "../xmr-varint" },
-		{ "path": "../xmr-constants" },
-		{ "path": "../xmr-b58" },
-		{ "path": "../xmr-str-utils" },
-		{ "path": "../xmr-fast-hash" },
-		{ "path": "../biginteger" }
-	]
+	}
 }
